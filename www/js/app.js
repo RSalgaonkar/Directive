@@ -79,10 +79,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                   } else {
                     model.$setValidity('email', false);
                     // REMOVE UNWANTED WHITESPACE !!Not working
-                    model.$formatters.push(function(value) {
-                      var mValue = model.$viewValue.trim();
-                      return model.$viewValue = mValue;
-                    });
+                    // model.$formatters.push(function(value) {
+                    //   var mValue = model.$viewValue.trim();
+                    //   return model.$setViewValue = mValue;
+                    // });
                     return undefined;
                   }  
                 // }
