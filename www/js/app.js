@@ -52,13 +52,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                       // for(sele in selectedElements){
                       //   selectedElements[sele].remove()
                       // }
-                      var inputEle = document.getElementById('email');
-                      if(inputEle.value.length == 0){
-                        var element = document.getElementsByClassName('ion-android-close');
-                        for(sele in element){
-                          element[sele].remove();
-                        }
-                      }
+                      // var inputEle = document.getElementById('email');
+                      // if(inputEle.value.length == 0){
+                      //   var element = document.getElementsByClassName('ion-android-close');
+                      //   for(sele in element){
+                      //     element[sele].remove();
+                      //   }
+                      // }
                       model.$setViewValue(null);
                       model.$render();
                       $timeout(function() {
