@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       var counter = 0, selectedLoopValue = null;
       var emailValidator = function(value) {
           elm.bind('keypress keyup', function(event) {
-            event.stopPropagation()
+            event.stopPropagation();
             if(event.keyCode.toString() == '32'){
               var coll = model.$viewValue.split(/[\s]+/);
               for(i in coll){
@@ -91,8 +91,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             // return;
           })
       }
-      model.$parsers.push(emailValidator);
-      model.$formatters.push(emailValidator);
+
+      // CHECK FOR VALIDATION
+      // model.$parsers.unshift(emailValidator);
+      model.$formatters.unshift(emailValidator);
     }
   }
 }])
