@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                       model.$setViewValue(null);
                       model.$render();
                       $timeout(function() {
-                        elm[0].focus();
+                        elm.focus();
                       }, 0, false);
                     };
                     elm.bind('input focus', function() {
