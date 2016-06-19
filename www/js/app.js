@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .directive('nanuEmail', ['$compile', '$timeout' , function($compile, $timeout) {
   return {
-    // restrict: 'E',
+    restrict: 'A',
     scope: {},
     require: 'ngModel',
     link: function(scope, elm, attrs, model) {
@@ -45,8 +45,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                     // var template = $compile('<i ng-show="closeButton" ng-click="reset($event)" ng-class='+coll[i]+' class="icon ion-android-close reset-field-icon '+coll[i]+'"></i>')(scope);
                     var template = $compile("<i ng-show='closeButton' ng-click='reset($event)' class='icon ion-android-close reset-field-icon'></i>")(scope);
                     elm.after(template);
-                    scope.reset = function(event,className) {
-                      // debugger;
+                    scope.reset = function(event) {
+                      // CLEAR THE CLOSE BUTTON FOR SPECIFIC TEXT !! Not Working
                       // var targetClass = event.target.getAttribute('ng-class');
                       // var selectedElements  = document.getElementsByClassName(targetClass);
                       // for(sele in selectedElements){
@@ -73,11 +73,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                       scope.closeButton = false;
                       scope.$apply();
                     });
-                    selectedLoopValue = coll[i]
+                    // selectedLoopValue = coll[i]
                     model.$setValidity('email', true);
                     return value;
                   } else {
                     model.$setValidity('email', false);
+                    // REMOVE UNWANTED WHITESPACE !!Not working
+                    model.$formatters.push(function(value) {
+                      var mValue = model.$viewValue.trim();
+                      return model.$viewValue = mValue;
+                    });
                     return undefined;
                   }  
                 // }
